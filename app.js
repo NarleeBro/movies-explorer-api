@@ -35,7 +35,7 @@ mongoose.connect(DB_URL, {
 app.use(requestLogger);
 app.use(limiter);
 
-app.use('/api', require('./routes/index'));
+app.use('/', require('./routes/index'));
 
 app.use(errorLogger);
 
