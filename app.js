@@ -9,8 +9,9 @@ const cors = require('cors');
 const errorHandler = require('./middlewares/error-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { BITFILMS_DB } = require('./utils/config');
+const { BITFILMS_DB_NAME } = require('./utils/config');
 
-const { PORT = 3000, DB_URL = BITFILMS_DB } = process.env;
+const { PORT = 3000, DB_URL = BITFILMS_DB, DB_NAME = BITFILMS_DB_NAME } = process.env;
 
 const app = express();
 app.use(cors());
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(DB_URL, {
+  dbName: DB_NAME,
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -33,7 +35,7 @@ mongoose.connect(DB_URL, {
 app.use(requestLogger);
 app.use(limiter);
 
-app.use('/', require('./routes/index'));
+app.use('/api', require('./routes/index'));
 
 app.use(errorLogger);
 

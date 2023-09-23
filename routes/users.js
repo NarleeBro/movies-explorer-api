@@ -1,12 +1,12 @@
-const router = require("express").Router();
-const { celebrate, Joi } = require("celebrate");
-const { urlRegular } = require("../utils/constants");
-const { editUserData, getMeUser } = require("../controllers/users");
+const router = require('express').Router();
+const { celebrate, Joi } = require('celebrate');
+const { emailRegular } = require('../utils/constants');
+const { editUserData, getMeUser } = require('../controllers/users');
 
-router.get("/me", getMeUser);
+router.get('/me', getMeUser);
 
 router.patch(
-  "/me",
+  '/me',
   celebrate({
     body: Joi.object().keys({
       name: Joi.string()
@@ -15,10 +15,10 @@ router.patch(
         .max(30),
       email: Joi.string()
         .required()
-        .pattern(emailRegular)
+        .pattern(emailRegular),
     }),
   }),
-  editUserData
+  editUserData,
 );
 
 module.exports = router;
