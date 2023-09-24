@@ -5,3 +5,5 @@
 
 Адрес для проверки работы: https://api.narleebro.nomoredomainsicu.ru
 IP-адрес: 158.160.112.189
+
+Ссылка на репозиторий: https://github.com/NarleeBro/movies-explorer-api/pull/1

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { urlRegular } = require('../utils/constants');
+const { Messages } = require('../utils/constants');
 
 const movieSchema = new mongoose.Schema(
   {
@@ -30,7 +31,7 @@ const movieSchema = new mongoose.Schema(
         validator(v) {
           return urlRegular.test(v);
         },
-        message: 'Введите URL',
+        message: Messages.BadValidator,
       },
     },
     trailerLink: {
@@ -40,7 +41,7 @@ const movieSchema = new mongoose.Schema(
         validator(v) {
           return urlRegular.test(v);
         },
-        message: 'Введите URL',
+        message: Messages.BadValidator,
       },
     },
     thumbnail: {
@@ -50,7 +51,7 @@ const movieSchema = new mongoose.Schema(
         validator(v) {
           return urlRegular.test(v);
         },
-        message: 'Введите URL',
+        message: Messages.BadValidator,
       },
     },
     owner: {
