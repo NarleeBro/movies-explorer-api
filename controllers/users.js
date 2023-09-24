@@ -18,7 +18,10 @@ module.exports.editUserData = (req, res, next) => {
     .orFail()
     .then((user) => res.status(200).send(user))
     .catch((error) => {
-      if (error instanceof mongoose.Error.ValidationError) {
+      if (error.code === 11000) {
+        next(new ConflictError(`Пользователь с таким email уже был зарегистрирован`));
+      } else if
+      (error instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError(error.message));
       } else if (error instanceof mongoose.Error.DocumentNotFoundError) {
         next(new NotFoundError('Пользователь по указанному _id не найден.'));
