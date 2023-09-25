@@ -1,6 +1,9 @@
 # movies-explorer-api
 
-Адрес сервера: api.narleebro.nomoredomainsicu.ru 
-IP: 158.160.112.189
+Дипломный проект выпускника ЯндексПрактикум 
+Тут будет храниться backend "diplom".
 
-Репозиторий: https://github.com/NarleeBro/movies-explorer-api/pull/1
+Адрес для проверки работы: https://api.narleebro.nomoredomainsicu.ru
+IP-адрес: 158.160.112.189
+
+Ссылка на репозиторий: https://github.com/NarleeBro/movies-explorer-api/pull/1
